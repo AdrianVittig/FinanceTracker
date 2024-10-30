@@ -43,17 +43,54 @@
   color: white;
 }
 
+.dashboard-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
 .dashboard-section {
+  flex: 2;
+  margin-right: 1rem;
   font-size: 1.6rem;
   align-items: center;
+  border-radius: 0.5rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border-top: 0.01rem solid black;
+  align-items: start;
 }
 .dashboard-title {
   padding: 1rem;
 }
+
+.send-transaction {
+  flex: 1;
+  margin-right: 3rem;
+  font-size: 1.8rem;
+  align-items: center;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.transaction-form label,
+.transaction-form input {
+  display: block;
+  margin-bottom: 1rem;
+}
+.add-transaction-form {
+  padding: 1rem;
+}
+
+.transaction-form input {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: white;
+  font-size: 1.6rem;
+}
+
 .recent-transations-section {
   font-size: 1.6rem;
   justify-content: center;
@@ -128,4 +165,10 @@
 
   background-color: rgb(130, 130, 234);
   color: white;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
