@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: rgb(222, 250, 223);
+}
+
+.navbar {
+  position: sticky;
+  background-color: rgb(130, 130, 234);
+
+  display: flex;
+  top: 0;
+  padding: 1rem;
+  justify-content: flex-end;
+  z-index: 1000;
+}
+
+.navbar-list {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-list-li {
+  padding: 2rem;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  border-right: 0.1rem black solid;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+}
+
+.navbar-list-li:hover {
+  background-color: rgb(199, 71, 71);
+}
+
+.navbar-link:hover {
+  background-color: rgb(199, 71, 71);
+  color: white;
+}
+
+.dashboard-section {
+  font-size: 1.6rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 0.01rem solid black;
+}
+.recent-transations-section {
+  font-size: 1.6rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  border: 0.01rem solid black;
+  padding: 1rem;
+}
+
+.recent-transactions-list {
+  list-style: none;
+}
+
+.main-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: rgb(130, 130, 234);
+}
+
+.footer-column h3 {
+  background-color: rgb(130, 130, 234);
+  padding-bottom: 1rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-headings {
+  font-size: 1.6rem;
+}
+.footer-column li,
+.contact-footer {
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: rgb(130, 130, 234);
+}
+
+.about-me-list a {
+  text-decoration: none;
+  color: black;
+  background-color: rgb(130, 130, 234);
+}
+
+.about-me-list a:hover {
+  text-decoration: none;
+  background-color: rgb(199, 71, 71);
+  color: white;
+}
+
+.el {
+  padding: 0.8rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
