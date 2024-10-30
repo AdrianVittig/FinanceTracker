@@ -51,6 +51,9 @@
   align-items: center;
   border-top: 0.01rem solid black;
 }
+.dashboard-title {
+  padding: 1rem;
+}
 .recent-transations-section {
   font-size: 1.6rem;
   justify-content: center;
@@ -107,4 +110,22 @@
   padding: 0.8rem;
   font-size: 2rem;
   font-weight: bold;
+}
+
+.add-transactions {
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.add-transactions:hover {
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+
+  background-color: rgb(130, 130, 234);
+  color: white;
 }

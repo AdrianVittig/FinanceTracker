@@ -20,6 +20,8 @@ const totalIncomeLabel = document.querySelector(".total-income");
 
 const totalExpensesLabel = document.querySelector(".total-expenses");
 
+const btnAddTransaction = document.querySelector(".add-transactions");
+
 function formatCurrency(amount) {
   return `${Math.abs(amount.toFixed(2))} лв`;
 }
@@ -61,11 +63,18 @@ function updateBalance() {
 function displayMovements() {
   transactionsList.innerHTML = "";
 
-  movementsArr.forEach(function (movement, index) {
+  const transactions = movementsArr.map((movement, index) => ({
+    amount: movement,
+    date: new Date(datesArr[index]),
+  }));
+
+  transactions.sort((a, b) => a.date - b.date);
+
+  transactions.forEach(function (movement) {
     const listItem = document.createElement("li");
     listItem.textContent = `Дата: ${formatDate(
-      datesArr[index]
-    )}; Сума: ${formatCurrency(movement)}`;
+      movement.date
+    )}; Сума: ${formatCurrency(movement.amount)}`;
 
     listItem.style.padding = "1rem";
     listItem.style.margin = "1rem";
@@ -84,6 +93,16 @@ function displayMovements() {
     transactionsList.appendChild(listItem);
   });
 }
+
+btnAddTransaction.addEventListener("click", function (e) {
+  e.preventDefault();
+  const now = new Date();
+
+  movementsArr.push(Math.trunc(Math.random() * 50));
+  datesArr.push(now);
+  updateUI();
+});
+
 function updateUI() {
   displayMovements();
   updateBalance();
