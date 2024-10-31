@@ -168,6 +168,39 @@
   color: white;
 }
 
+.transaction-type {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  background-color: rgb(130, 130, 234);
+}
+
+.transaction-type:hover {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  background-color: rgb(199, 71, 71);
+  color: white;
+  cursor: pointer;
+}
+
+.transaction-type option {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  color: black;
+}
+
+.transaction-type option:hover {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  color: black;
+}
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;

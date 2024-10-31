@@ -22,6 +22,8 @@ const descrInput = document.getElementById("description");
 
 const toWhoInput = document.getElementById("to-who");
 
+const transactionTypeInput = document.querySelector(".transaction-type");
+
 function formatCurrency(amount) {
   return `${Math.abs(amount.toFixed(2))} лв`;
 }
@@ -111,7 +113,12 @@ btnAddTransaction.addEventListener("click", function (e) {
   const description = descrInput.value;
   const toWho = toWhoInput.value;
   const now = new Date();
-  movementsArr.push(amount);
+  const transactionType = transactionTypeInput.value;
+
+  const adjustedAmount =
+    transactionType === "expense" ? -Math.abs(amount) : Math.abs(amount);
+
+  movementsArr.push(adjustedAmount);
   datesArr.push(now);
   descriptionsArr.push(description);
   receiverArr.push(toWho);
