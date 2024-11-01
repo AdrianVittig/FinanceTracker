@@ -15,9 +15,19 @@
             ><li class="navbar-list-li">Dashboard</li></a
           >
 
-          <a class="navbar-link" href="index.html"
-            ><li class="navbar-list-li">Settings</li></a
-          >
+          <li class="navbar-list-li settings-item">
+            Settings
+            <div class="hover-menu">
+              <div class="modal">
+                <h2>Settings</h2>
+                <label class="switch">
+                  <input type="checkbox" name="" id="dark-mode-toggle" />
+                  <span class="label">Toggle Dark Mode</span>
+                </label>
+              </div>
+            </div>
+          </li>
+
           <a class="navbar-link" href="index.html"
             ><li class="navbar-list-li">Logout</li></a
           >
@@ -36,10 +46,6 @@
         <section class="send-transaction">
           <div class="transaction-form">
             <form class="add-transaction-form">
-              <select class="transaction-type" required>
-                <option value="income">Income</option>
-                <option value="expense">Expense</option>
-              </select>
               <label for="amount">Amount: </label>
               <input type="number" id="amount" required />
 
@@ -49,6 +55,10 @@
               <label for="to-who">To: </label>
               <input type="text" id="to-who" required />
               <button type="submit" class="add-transactions">Send</button>
+              <select class="transaction-type" required>
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+              </select>
             </form>
           </div>
         </section>

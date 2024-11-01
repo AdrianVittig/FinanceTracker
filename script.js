@@ -24,6 +24,24 @@ const toWhoInput = document.getElementById("to-who");
 
 const transactionTypeInput = document.querySelector(".transaction-type");
 
+const toggle = document.getElementById("dark-mode-toggle");
+const hoverMenu = document.getElementById("hoverMenu");
+
+if (localStorage.getItem("dark-mode") === "enabled") {
+  document.body.classList.add("dark-mode");
+  toggle.checked = true;
+}
+
+toggle.addEventListener("change", function () {
+  document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("dark-mode", "enabled");
+  } else {
+    localStorage.setItem("dark-mode", "disabled");
+  }
+});
+
 function formatCurrency(amount) {
   return `${Math.abs(amount.toFixed(2))} лв`;
 }
@@ -107,6 +125,35 @@ function displayMovements() {
   });
 }
 
+function saveToStorage() {
+  localStorage.setItem("movementsArr", JSON.stringify(movementsArr));
+  localStorage.setItem("datesArr", JSON.stringify(datesArr));
+  localStorage.setItem("descriptionsArr", JSON.stringify(descriptionsArr));
+  localStorage.setItem("receiverArr", JSON.stringify(receiverArr));
+}
+
+function loadFromStorage() {
+  const savedMovements = JSON.parse(localStorage.getItem("movementsArr"));
+  const savedDates = JSON.parse(localStorage.getItem("datesArr"));
+  const savedDescriptions = JSON.parse(localStorage.getItem("descriptionsArr"));
+  const savedReceivers = JSON.parse(localStorage.getItem("receiverArr"));
+
+  if (savedMovements) {
+    movementsArr.push(...savedMovements);
+  }
+  if (savedDates) {
+    datesArr.push(...savedDates);
+  }
+  if (savedDescriptions) {
+    descriptionsArr.push(...savedDescriptions);
+  }
+  if (savedReceivers) {
+    receiverArr.push(...savedReceivers);
+  }
+}
+
+loadFromStorage();
+
 btnAddTransaction.addEventListener("click", function (e) {
   e.preventDefault();
   const amount = Number(amountInput.value);
@@ -122,7 +169,7 @@ btnAddTransaction.addEventListener("click", function (e) {
   datesArr.push(now);
   descriptionsArr.push(description);
   receiverArr.push(toWho);
-
+  saveToStorage();
   amountInput.value = "";
   descrInput.value = "";
   toWhoInput.value = "";
