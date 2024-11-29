@@ -24,12 +24,36 @@ const toWhoInput = document.getElementById("to-who");
 
 const transactionTypeInput = document.querySelector(".transaction-type");
 
+<<<<<<< HEAD
 const hoverMenu = document.getElementById("hoverMenu");
 
 function formatCurrency(amount) {
   return `${Math.abs(amount.toFixed(2))} лв`;
 }
 
+=======
+const toggle = document.getElementById("dark-mode-toggle");
+const hoverMenu = document.getElementById("hoverMenu");
+
+if (localStorage.getItem("dark-mode") === "enabled") {
+  document.body.classList.add("dark-mode");
+  toggle.checked = true;
+}
+
+toggle.addEventListener("change", function () {
+  document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("dark-mode", "enabled");
+  } else {
+    localStorage.setItem("dark-mode", "disabled");
+  }
+});
+
+function formatCurrency(amount) {
+  return `${Math.abs(amount.toFixed(2))} лв`;
+}
+>>>>>>> 8db306b643fbfc39dc2ea29c5e8abd1569c36762
 function formatDate(dateString) {
   const options = { year: "numeric", month: "numeric", day: "numeric" };
   return new Date(dateString).toLocaleDateString("de-DE", options);
@@ -44,10 +68,16 @@ function updateIncome() {
       return (acc += mov);
     }, 0);
   totalIncomeLabel.textContent = `Income: ${totalIncome.toFixed(2)} лв`;
+<<<<<<< HEAD
   totalIncomeLabel.style.backgroundColor = "#256D36";
   totalIncomeLabel.style.borderRadius = "1rem";
   totalIncomeLabel.style.fontWeight = "bold";
   totalIncomeLabel.style.color = "white";
+=======
+  totalIncomeLabel.style.backgroundColor = "rgb(52, 143, 66, 50%)";
+  totalIncomeLabel.style.borderRadius = "1rem";
+  totalIncomeLabel.style.fontWeight = "bold";
+>>>>>>> 8db306b643fbfc39dc2ea29c5e8abd1569c36762
 }
 
 function updateExpenses() {
@@ -61,11 +91,18 @@ function updateExpenses() {
   totalExpensesLabel.textContent = `Expenses: ${Math.abs(
     totalExpenses.toFixed(2)
   )} лв.`;
+<<<<<<< HEAD
 
   totalExpensesLabel.style.backgroundColor = "#A73535";
   totalExpensesLabel.style.borderRadius = "1rem";
   totalExpensesLabel.style.fontWeight = "bold";
   totalExpensesLabel.style.color = "white";
+=======
+  // totalExpensesLabel.style.padding = "1rem";
+  totalExpensesLabel.style.backgroundColor = "rgb(199,71,71, 50%)";
+  totalExpensesLabel.style.borderRadius = "1rem";
+  totalExpensesLabel.style.fontWeight = "bold";
+>>>>>>> 8db306b643fbfc39dc2ea29c5e8abd1569c36762
 }
 
 function updateBalance() {
@@ -73,9 +110,12 @@ function updateBalance() {
     return (acc += mov);
   });
   balanceLabel.textContent = `Balance: ${totalBal.toFixed(2)} лв`;
+<<<<<<< HEAD
   balanceLabel.style.borderRadius = "1rem";
   balanceLabel.style.backgroundColor = "#2A4F7C";
   balanceLabel.style.color = "white";
+=======
+>>>>>>> 8db306b643fbfc39dc2ea29c5e8abd1569c36762
 }
 
 function displayMovements() {
@@ -103,11 +143,19 @@ function displayMovements() {
     listItem.style.textAlign = "center";
 
     if (movement.amount < 0) {
+<<<<<<< HEAD
       listItem.style.backgroundColor = "#A73535";
 
       listItem.style.color = "white";
     } else {
       listItem.style.backgroundColor = "#256D36";
+=======
+      listItem.style.backgroundColor = "rgb(199, 71, 71,85%)";
+
+      listItem.style.color = "white";
+    } else {
+      listItem.style.backgroundColor = "rgb(52, 143, 66,75%)";
+>>>>>>> 8db306b643fbfc39dc2ea29c5e8abd1569c36762
       listItem.style.color = "white";
     }
 
