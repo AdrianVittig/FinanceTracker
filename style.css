@@ -27,12 +27,8 @@ body {
 }
 
 .navbar-list-li {
-  /* padding: 2rem;
-  justify-content: space-between;
-  font-size: 1.6rem;
-  border-right: 0.1rem black solid;
-  cursor: pointer; */
   position: relative;
+  text-align: center;
 }
 
 .navbar-link {
@@ -43,9 +39,17 @@ body {
   border-radius: 0.5rem;
 }
 
-.navbar-link:hover {
+.navbar-list li:hover {
   background-color: #fd7a6e;
   color: white;
+}
+
+.dashboard-section,
+.send-transaction {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  box-shadow: 0 1rem 1.2rem rgba(0, 0, 0, 0.1);
 }
 
 .hover-menu {
@@ -111,8 +115,8 @@ body.dark-mode {
 
 .send-transaction {
   flex: 1;
-  margin-right: 3rem;
-  font-size: 1.8rem;
+  margin-right: 2rem;
+  font-size: 1.4rem;
   align-items: center;
   padding: 1rem;
   display: flex;
@@ -120,30 +124,26 @@ body.dark-mode {
   align-items: flex-end;
 }
 
-.transaction-form label,
+.transaction-form,
 .transaction-form input {
-  display: block;
-  margin-bottom: 1rem;
-}
-.add-transaction-form {
-  padding: 1rem;
-}
-
-.transaction-form input {
-  padding: 1rem;
-  border-radius: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
   background-color: white;
-  font-size: 1.6rem;
+  font-size: 0.8rem;
+  width: 80%;
+  margin-bottom: 0.5rem;
 }
 
 .recent-transations-section {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: column;
   border: 0.01rem solid black;
   padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
 }
 
 .recent-transactions-list {
@@ -153,9 +153,15 @@ body.dark-mode {
 .main-footer {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  gap: 1rem;
   padding: 2rem;
   background-color: #001f3f;
   color: white;
+}
+
+.footer-column {
+  flex: 1;
 }
 
 .footer-column h3 {
@@ -200,38 +206,32 @@ body.dark-mode {
 }
 
 .add-transactions {
-  font-size: 2rem;
-  padding: 1rem;
-  border-radius: 1rem;
+  font-size: 1.5rem;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
   cursor: pointer;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .add-transactions:hover {
-  font-size: 2rem;
-  padding: 1rem;
-  border-radius: 1rem;
   cursor: pointer;
-
   background-color: #fd7a6e;
   color: white;
 }
 
 .transaction-type {
-  font-size: 1.4rem;
-  padding: 1rem;
-  border-radius: 0.3rem;
+  padding: 0.5rem;
+  font-size: 0.9rem;
   cursor: pointer;
   background-color: #001f3f;
-  margin-bottom: 1rem;
   border: 0.1rem solid black;
-  margin: 0 1.5rem;
+  margin: 0.5rem auto;
   color: white;
 }
 
 .transaction-type:hover {
-  font-size: 1.4rem;
-  padding: 1rem;
+  font-size: 0.9rem;
+  padding: 0.5rem;
   border-radius: 0.3rem;
   background-color: #fd7a6e;
   color: white;
@@ -239,15 +239,15 @@ body.dark-mode {
 }
 
 .transaction-type option {
-  font-size: 1.4rem;
-  padding: 1rem;
+  font-size: 0.9rem;
+  padding: 0.5rem;
   border-radius: 0.3rem;
   cursor: pointer;
   color: black;
 }
 
 .transaction-type option:hover {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   padding: 0.5rem;
   border-radius: 0.3rem;
   cursor: pointer;
@@ -258,6 +258,10 @@ input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.add-transaction-form {
+  width: 50%;
 }
 
 /* HELP PAGE */
@@ -300,8 +304,50 @@ input[type="number"]::-webkit-inner-spin-button {
   margin-top: 0.5rem;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
+  .navbar {
+    flex-direction: row;
+  }
+
+  .dashboard-section {
+    flex: 2;
+    margin-right: 1rem;
+  }
+
+  .send-transaction {
+    flex: 1;
+  }
+
   .navbar-list {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+  }
+
+  .dashboard-container {
+    flex-direction: row;
+  }
+
+  .dashboard-section {
+    flex: 2;
+    margin-right: 1rem;
+  }
+
+  .send-transaction {
+    flex: 1;
+  }
+
+  .main-footer {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  /* .navbar-list {
     display: none;
     flex-direction: column;
     position: absolute;
@@ -311,9 +357,27 @@ input[type="number"]::-webkit-inner-spin-button {
     width: 100%;
     color: white;
     text-align: center;
-  }
+  } */
+
   .navbar-link {
     padding: 1rem;
     width: 100%;
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .send-transaction {
+    margin-top: 1rem;
+  }
+
+  .main-footer {
+    flex-direction: column;
   }
 }
