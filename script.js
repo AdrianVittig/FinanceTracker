@@ -142,7 +142,7 @@ function loadFromStorage() {
   }
 }
 
-loadFromStorage();
+// loadFromStorage();
 
 btnAddTransaction.addEventListener("click", function (e) {
   e.preventDefault();
