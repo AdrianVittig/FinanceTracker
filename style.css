@@ -37,11 +37,13 @@ body {
   font-size: 1.6rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
+  font-weight: bold;
 }
 
 .navbar-list li:hover {
   background-color: #fd7a6e;
   color: white;
+  border-radius: 0.3rem;
 }
 
 .dashboard-section,
@@ -77,15 +79,58 @@ body.dark-mode .settings-item {
   color: black;
 }
 
-/* .switch {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+body.dark-mode {
+  background-color: #121212;
+  color: white;
 }
 
-.switch input {
-  margin: 1rem;
-} */
+body.dark-mode .navbar {
+  background-color: #1f1f1f;
+}
+
+body.dark-mode .dashboard-section,
+body.dark-mode .send-transaction,
+body.dark-mode .transaction-form,
+body.dark-mode .help-overview,
+body.dark-mode .faq,
+body.dark-mode .settings {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .faq li {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .settings-group {
+  background-color: #2a2a2a;
+}
+
+body.dark-mode .settings-group button {
+  background-color: #444;
+  color: #e0e0e0;
+}
+body.dark-mode .settings-group button:hover {
+  background-color: #001f3f;
+  color: #e0e0e0;
+}
+
+body.dark-mode .main-footer {
+  background-color: #001f3f;
+}
+
+body.dark-mode a {
+  color: white;
+}
+
+body.dark-mode a:hover {
+  background-color: #001f3f;
+  color: white;
+}
+
+body.dark-mode .main-footer a:hover {
+  background-color: #121212;
+  color: white;
+}
 
 input::placeholder {
   font-weight: bold;
@@ -120,14 +165,13 @@ body.dark-mode {
 }
 
 .send-transaction {
-  flex: 1;
-  margin-right: 2rem;
-  font-size: 1.4rem;
-  align-items: center;
-  padding: 1rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  align-items: flex-end;
+  /* flex: 1; */
+  font-size: 1.4rem;
+  padding: 1rem;
 }
 
 .transaction-form,
@@ -168,6 +212,7 @@ body.dark-mode {
 
 .footer-column {
   flex: 1;
+  text-align: center;
 }
 
 .footer-column h3 {
@@ -201,6 +246,7 @@ body.dark-mode {
   text-decoration: none;
   background-color: #fd7a6e;
   color: white;
+  border-radius: 0.3rem;
 }
 
 .el {
@@ -238,7 +284,6 @@ body.dark-mode {
 
 .transaction-type:hover {
   font-size: 0.9rem;
-  padding: 0 / rem;
   border-radius: 0.3rem;
   background-color: #fd7a6e;
   color: white;
@@ -271,7 +316,6 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 50%;
 }
 
-/* HELP PAGE */
 .help-overview {
   padding: 2rem;
   text-align: center;
@@ -309,6 +353,52 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .faq-list p {
   margin-top: 0.5rem;
+}
+
+.settings {
+  padding: 2rem;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 800px;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.settings h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.settings-group {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+}
+
+.settings-group h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.settings-group label {
+  font-size: 1.2rem;
+}
+
+.settings-group button {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: #001f3f;
+  color: white;
+  cursor: pointer;
+}
+
+.settings-group button:hover {
+  background-color: #fd7a6e;
 }
 
 @media (min-width: 768px) {
@@ -354,6 +444,7 @@ input[type="number"]::-webkit-inner-spin-button {
     flex-direction: column;
     align-items: flex-start;
   }
+
   /* .navbar-list {
     display: none;
     flex-direction: column;
@@ -369,6 +460,16 @@ input[type="number"]::-webkit-inner-spin-button {
   .navbar-link {
     padding: 1rem;
     width: 100%;
+  }
+
+  .navbar-list li {
+    margin: 1rem;
+    background-color: #1e1e1e;
+  }
+
+  .navbar-list li:hover {
+    margin: 1rem;
+    background-color: #1f1f1f;
   }
 
   .navbar-list {
@@ -387,4 +488,14 @@ input[type="number"]::-webkit-inner-spin-button {
   .main-footer {
     flex-direction: column;
   }
+
+  /* .main-footer li {
+    padding: 0.5rem;
+    background-color: #001f3f;
+  }
+
+  .main-footer li a:hover {
+    padding: 0.5rem;
+    background-color: #002fec;
+  } */
 }

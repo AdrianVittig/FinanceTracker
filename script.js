@@ -26,6 +26,8 @@ const transactionTypeInput = document.querySelector(".transaction-type");
 
 const hoverMenu = document.getElementById("hoverMenu");
 
+const darkModeToggle = document.getElementById("dark-mode-toggle");
+
 function formatCurrency(amount) {
   return `${Math.abs(amount.toFixed(2))} лв`;
 }
@@ -43,6 +45,7 @@ function updateIncome() {
     .reduce(function (acc, mov) {
       return (acc += mov);
     }, 0);
+
   totalIncomeLabel.textContent = `Income: ${totalIncome.toFixed(2)} лв`;
   totalIncomeLabel.style.backgroundColor = "#256D36";
   totalIncomeLabel.style.borderRadius = "1rem";
@@ -92,9 +95,9 @@ function displayMovements() {
 
   transactions.forEach(function (movement) {
     const listItem = document.createElement("li");
-    listItem.textContent = `${formatDate(movement.date)} - ${
+    listItem.textContent = `${formatDate(movement.date)} | ${
       movement.description
-    } - ${movement.receiver} - ${formatCurrency(movement.amount)}`;
+    } - ${movement.receiver} | ${formatCurrency(movement.amount)}`;
 
     listItem.style.padding = "1rem";
     listItem.style.margin = "1rem";
@@ -112,6 +115,27 @@ function displayMovements() {
     }
 
     transactionsList.appendChild(listItem);
+  });
+}
+
+if (localStorage.getItem("darkMode") === "enabled") {
+  document.body.classList.add("dark-mode");
+  if (darkModeToggle) {
+    darkModeToggle.textContent = "Enable Light Mode";
+  }
+}
+
+if (darkModeToggle) {
+  darkModeToggle.addEventListener("click", function () {
+    if (document.body.classList.contains("dark-mode")) {
+      document.body.classList.remove("dark-mode");
+      localStorage.setItem("darkMode", "disabled");
+      darkModeToggle.textContent = "Enable Dark Mode";
+    } else {
+      document.body.classList.add("dark-mode");
+      localStorage.setItem("darkMode", "enabled");
+      darkModeToggle.textContent = "Disable Dark Mode";
+    }
   });
 }
 
@@ -142,7 +166,7 @@ function loadFromStorage() {
   }
 }
 
-// loadFromStorage();
+loadFromStorage();
 
 btnAddTransaction.addEventListener("click", function (e) {
   e.preventDefault();
@@ -151,7 +175,9 @@ btnAddTransaction.addEventListener("click", function (e) {
   const toWho = toWhoInput.value;
   const now = new Date();
   const transactionType = transactionTypeInput.value;
-
+  if (transactionType === "") {
+    alert("You have to select transaction type.");
+  }
   const adjustedAmount =
     transactionType === "expense" ? -Math.abs(amount) : Math.abs(amount);
 

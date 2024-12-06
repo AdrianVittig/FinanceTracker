@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Help & Support</title>
+    <title>Settings</title>
   </head>
   <body>
     <header class="main-header">
@@ -24,39 +24,18 @@
     </header>
 
     <main>
-      <section class="help-overview">
-        <h1>Welcome to Help & Support</h1>
-        <p>
-          Here you'll find answers to common questions and ways to get in touch
-          with me.
-        </p>
-      </section>
+      <section class="settings">
+        <h1>Settings</h1>
 
-      <section class="faq">
-        <h2>Frequently Asked Questions</h2>
-        <ul class="faq-list">
-          <li>
-            <strong>How do I add a transaction?</strong>
-            <p>
-              Navigate to the "Dashboard" page, fill in the transaction form
-              with the amount, description, and type, and click "Send".
-            </p>
-          </li>
-          <li>
-            <strong>How do I view my balance?</strong>
-            <p>
-              Your current balance is displayed on the "Dashboard" page under
-              the Balance section.
-            </p>
-          </li>
-          <li>
-            <strong>How can I reset my data?</strong>
-            <p>
-              You can reset your data by clearing your browser's local storage
-              or by clicking the "Reset Data" button in the settings.
-            </p>
-          </li>
-        </ul>
+        <div class="settings-group">
+          <h2>Theme</h2>
+          <button id="dark-mode-toggle">Enable Dark Mode</button>
+        </div>
+
+        <div class="settings-group">
+          <h2>Data Management</h2>
+          <button id="reset-data">Reset All Data</button>
+        </div>
       </section>
     </main>
 
@@ -68,7 +47,7 @@
             <a
               target="_blank"
               href="https://www.linkedin.com/in/adrian-vitig-b74857268/"
-              >Linked In</a
+              >LinkedIn</a
             >
           </li>
           <li>
@@ -77,7 +56,7 @@
         </ul>
       </div>
       <div class="footer-column">
-        <h3 class="footer-headings">Contact information</h3>
+        <h3 class="footer-headings">Contact Information</h3>
         <p class="contact-footer">Email: adrianvitig@gmail.com</p>
         <p class="contact-footer">Phone: +359 878893656</p>
       </div>
@@ -89,6 +68,7 @@
         </ul>
       </div>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
