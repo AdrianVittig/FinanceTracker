@@ -401,6 +401,41 @@ input[type="number"]::-webkit-inner-spin-button {
   background-color: #fd7a6e;
 }
 
+#feedback-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0.1rem;
+  background: rgb(159, 168, 170);
+  border: 1px solid #ddd;
+  border-radius: 0.2rem;
+}
+
+#feedback-form textarea,
+#feedback-form input {
+  padding: 1rem;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+  color: black;
+}
+
+#feedback-form button {
+  padding: 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: #001f3f;
+  color: white;
+  cursor: pointer;
+}
+
+#feedback-form button:hover {
+  background-color: #fd7a6e;
+}
+
+#feedback-form ::placeholder {
+  color: black;
+  font-weight: bold;
+}
+
 @media (min-width: 768px) {
   .navbar {
     flex-direction: row;

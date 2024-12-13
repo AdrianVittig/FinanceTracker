@@ -33,8 +33,26 @@
         </div>
 
         <div class="settings-group">
-          <h2>Data Management</h2>
-          <button id="reset-data">Reset All Data</button>
+          <h2>Feedback</h2>
+          <form id="feedback-form">
+            <textarea
+              id="feedback-text"
+              placeholder="Write your feedback or report a bug"
+              rows="5"
+              required
+            ></textarea>
+            <input
+              type="text"
+              id="feedback-email"
+              placeholder="Enter your email"
+              required
+            />
+            <button type="submit" id="feedbackBtn">Submit your Feedback</button>
+          </form>
+        </div>
+        <div class="settings-group">
+          <h2>Reset data</h2>
+          <button id="reset-data">Reset Data</button>
         </div>
       </section>
     </main>
@@ -70,5 +88,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="settings.js"></script>
   </body>
 </html>

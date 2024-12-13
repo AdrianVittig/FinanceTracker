@@ -24,10 +24,6 @@ const toWhoInput = document.getElementById("to-who");
 
 const transactionTypeInput = document.querySelector(".transaction-type");
 
-const hoverMenu = document.getElementById("hoverMenu");
-
-const darkModeToggle = document.getElementById("dark-mode-toggle");
-
 function formatCurrency(amount) {
   return `${Math.abs(amount.toFixed(2))} лв`;
 }
@@ -74,7 +70,7 @@ function updateExpenses() {
 function updateBalance() {
   const totalBal = movementsArr.reduce(function (acc, mov) {
     return (acc += mov);
-  });
+  }, 0);
   balanceLabel.textContent = `Balance: ${totalBal.toFixed(2)} лв`;
   balanceLabel.style.borderRadius = "1rem";
   balanceLabel.style.backgroundColor = "#2A4F7C";
@@ -118,26 +114,13 @@ function displayMovements() {
   });
 }
 
-if (localStorage.getItem("darkMode") === "enabled") {
-  document.body.classList.add("dark-mode");
-  if (darkModeToggle) {
-    darkModeToggle.textContent = "Enable Light Mode";
-  }
-}
-
-if (darkModeToggle) {
-  darkModeToggle.addEventListener("click", function () {
-    if (document.body.classList.contains("dark-mode")) {
-      document.body.classList.remove("dark-mode");
-      localStorage.setItem("darkMode", "disabled");
-      darkModeToggle.textContent = "Enable Dark Mode";
-    } else {
-      document.body.classList.add("dark-mode");
-      localStorage.setItem("darkMode", "enabled");
-      darkModeToggle.textContent = "Disable Dark Mode";
-    }
-  });
-}
+window.sharedData = {
+  movementsArr,
+  datesArr,
+  descriptionsArr,
+  receiverArr,
+  updateUI,
+};
 
 function saveToStorage() {
   localStorage.setItem("movementsArr", JSON.stringify(movementsArr));
