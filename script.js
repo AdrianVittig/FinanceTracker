@@ -78,9 +78,8 @@ function updateBalance() {
 }
 
 function displayMovements() {
-  transactionsList.innerHTML = "";
-
   const transactions = movementsArr.map((movement, index) => ({
+    id: index,
     amount: movement,
     date: new Date(datesArr[index]),
     description: descriptionsArr[index],
@@ -90,27 +89,31 @@ function displayMovements() {
   transactions.sort((b, a) => a.date - b.date);
 
   transactions.forEach(function (movement) {
-    const listItem = document.createElement("li");
-    listItem.textContent = `${formatDate(movement.date)} | ${
-      movement.description
-    } - ${movement.receiver} | ${formatCurrency(movement.amount)}`;
+    if (!document.querySelector(`[data-id='${movement.id}']`)) {
+      const listItem = document.createElement("li");
+      listItem.textContent = `${formatDate(movement.date)} | ${
+        movement.description
+      } - ${movement.receiver} | ${formatCurrency(movement.amount)}`;
 
-    listItem.style.padding = "1rem";
-    listItem.style.margin = "1rem";
-    listItem.style.borderRadius = "1rem";
-    listItem.style.fontWeight = "bold";
-    listItem.style.textAlign = "center";
+      listItem.style.padding = "1rem";
+      listItem.style.margin = "1rem";
+      listItem.style.borderRadius = "1rem";
+      listItem.style.fontWeight = "bold";
+      listItem.style.textAlign = "center";
 
-    if (movement.amount < 0) {
-      listItem.style.backgroundColor = "#A73535";
+      if (movement.amount < 0) {
+        listItem.style.backgroundColor = "#A73535";
 
-      listItem.style.color = "white";
-    } else {
-      listItem.style.backgroundColor = "#256D36";
-      listItem.style.color = "white";
+        listItem.style.color = "white";
+      } else {
+        listItem.style.backgroundColor = "#256D36";
+        listItem.style.color = "white";
+      }
+
+      listItem.setAttribute("data-id", movement.id);
+
+      transactionsList.prepend(listItem);
     }
-
-    transactionsList.appendChild(listItem);
   });
 }
 
