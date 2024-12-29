@@ -499,12 +499,10 @@ input[type="number"]::-webkit-inner-spin-button {
 
   .navbar-list li {
     margin: 1rem;
-    background-color: #1e1e1e;
   }
 
   .navbar-list li:hover {
     margin: 1rem;
-    background-color: #1f1f1f;
   }
 
   .navbar-list {
